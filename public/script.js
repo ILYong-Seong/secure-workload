@@ -67,18 +67,16 @@ form.addEventListener('submit', async (e) => {
             form.reset();
         } else {
             // Actual submission
-            const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+            await fetch(GOOGLE_APPS_SCRIPT_URL, {
                 method: 'POST',
+                mode: 'no-cors',
                 body: formData
             });
             
-            if (response.ok) {
-                formMessage.textContent = '성공적으로 등록되었습니다. 안내 메일을 확인해주세요!';
-                formMessage.classList.add('success');
-                form.reset();
-            } else {
-                throw new Error('Network response was not ok.');
-            }
+            // no-cors mode returns an opaque response, so we assume success if no network error was thrown
+            formMessage.textContent = '성공적으로 등록되었습니다. 안내 메일을 확인해주세요!';
+            formMessage.classList.add('success');
+            form.reset();
         }
     } catch (error) {
         console.error('Error!', error.message);
