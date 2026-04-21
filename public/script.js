@@ -35,7 +35,7 @@ document.querySelectorAll('.animate-up').forEach(element => {
 
 // Form Submission (Google Sheets Integration)
 // To use this, replace GOOGLE_APPS_SCRIPT_URL with your actual deployed web app URL
-const GOOGLE_APPS_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze8iIFpbtu1hfjTVnjubm20If5Q-_1_8Rcbmsy8pqoTxavviMz6PjuQCeoJI5PQxK5gw/exec';
 
 const form = document.getElementById('registrationForm');
 const submitBtn = document.getElementById('submitBtn');
