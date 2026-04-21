@@ -67,10 +67,14 @@ form.addEventListener('submit', async (e) => {
             form.reset();
         } else {
             // Actual submission
+            const urlEncodedData = new URLSearchParams(formData).toString();
             await fetch(GOOGLE_APPS_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: urlEncodedData
             });
             
             // no-cors mode returns an opaque response, so we assume success if no network error was thrown
